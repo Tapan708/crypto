@@ -1,30 +1,40 @@
-
 import 'package:flutter/material.dart';
+import 'package:cryto/utils/app_color.dart';
+import 'package:cryto/utils/app_fonts.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
-    primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: Colors.white,
+    primaryColor: AppColor.primary,
+    scaffoldBackgroundColor: AppColor.white,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       elevation: 0,
       titleTextStyle: TextStyle(
-        color: Colors.black,
+        color: AppColor.black,
         fontSize: 20,
         fontWeight: FontWeight.bold,
+        fontFamily: AppFonts.bold,
       ),
-      iconTheme: IconThemeData(color: Colors.black),
+      iconTheme: IconThemeData(color: AppColor.black),
     ),
     textTheme: const TextTheme(
-      bodyMedium: TextStyle(color: Colors.black87),
+      bodyMedium: TextStyle(
+        color: AppColor.black87,
+        fontFamily: AppFonts.regular,
+      ),
       headlineSmall: TextStyle(
-        color: Colors.black,
+        color: AppColor.black,
         fontWeight: FontWeight.bold,
         fontSize: 24,
+        fontFamily: AppFonts.bold,
+      ),
+      bodySmall: TextStyle(
+        color: AppColor.black54,
+        fontFamily: AppFonts.light,
       ),
     ),
     cardTheme: const CardTheme(
-      color: Colors.white,
+      color: AppColor.white,
       elevation: 2,
       margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       shape: RoundedRectangleBorder(
@@ -32,8 +42,8 @@ class AppTheme {
       ),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Colors.blue,
-      foregroundColor: Colors.white,
+      backgroundColor: AppColor.primary,
+      foregroundColor: AppColor.white,
     ),
   );
 }
