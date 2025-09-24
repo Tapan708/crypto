@@ -1,4 +1,5 @@
 import 'package:cryto/utils/routes_path.dart';
+import 'package:cryto/views/add_stock.dart';
 import 'package:cryto/views/porfolio_screen.dart';
 import 'package:cryto/views/splash_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +14,11 @@ class AppRoutes {
       ),
       GoRoute(
         path: RoutesPath.portfolio,
-        builder: (context, state) => const PorfolioScreen(),
+        builder: (context, state) => PortfolioScreen(),
+      ),
+      GoRoute(
+        path: RoutesPath.addStock,
+        builder: (context, state) => AddStockScreen(),
       ),
     ],
   );

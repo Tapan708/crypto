@@ -455,13 +455,20 @@
 //   }
 // }
 
+import 'package:cryto/utils/routes_path.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class PorfolioScreen extends StatelessWidget {
-  const PorfolioScreen({super.key});
-
+class PortfolioScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(title: Text("Portfolio")),
+      body: Center(child: Text("Your Portfolio Data Here")),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => context.go(RoutesPath.addStock),
+      ),
+    );
   }
 }
