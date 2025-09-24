@@ -1,10 +1,10 @@
-import 'package:cryto/utils/app_color.dart';
-import 'package:cryto/utils/routes_path.dart';
+import 'package:crypto_app/services/dio_services.dart';
+import 'package:crypto_app/utils/app_color.dart';
+import 'package:crypto_app/utils/routes_path.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:hive/hive.dart';
-import 'package:cryto/services/dio_services.dart'; // import service
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -1,7 +1,7 @@
-import 'package:cryto/utils/routes_path.dart';
-import 'package:cryto/views/add_stock.dart';
-import 'package:cryto/views/porfolio_screen.dart';
-import 'package:cryto/views/splash_screen.dart';
+import 'package:crypto_app/utils/routes_path.dart';
+import 'package:crypto_app/views/add_stock.dart';
+import 'package:crypto_app/views/porfolio_screen.dart';
+import 'package:crypto_app/views/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRoutes {

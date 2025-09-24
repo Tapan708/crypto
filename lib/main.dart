@@ -1,6 +1,7 @@
 
-import 'package:cryto/utils/app_routes.dart';
-import 'package:cryto/utils/app_theme.dart';
+
+import 'package:crypto_app/utils/app_routes.dart';
+import 'package:crypto_app/utils/app_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';

@@ -1,6 +1,6 @@
+import 'package:crypto_app/utils/app_color.dart';
+import 'package:crypto_app/utils/app_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:cryto/utils/app_color.dart';
-import 'package:cryto/utils/app_fonts.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
