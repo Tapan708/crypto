@@ -13,9 +13,7 @@
    - **Refresh manually** (pull-to-refresh) or let it **auto-update every 90 seconds**  
 
 ---
-
-## 📸 Screenshots
-*(Add screenshots of your app here for better presentation!)*  
+ 
 
 ---
 
