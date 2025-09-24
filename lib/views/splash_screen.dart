@@ -2,6 +2,9 @@ import 'package:cryto/utils/app_color.dart';
 import 'package:cryto/utils/routes_path.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive/hive.dart';
+import 'package:cryto/services/dio_services.dart'; // import service
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,9 +18,12 @@ class _SplashScreenState extends State<SplashScreen>
   late AnimationController _controller;
   late Animation<double> _animation;
 
+  final DioServices _dioServices = DioServices(); // instance
+
   @override
   void initState() {
     super.initState();
+
     _controller = AnimationController(
       duration: const Duration(seconds: 2),
       vsync: this,
@@ -28,11 +34,34 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller.forward();
 
-    Future.delayed(const Duration(milliseconds: 2500), () {
-      _controller.reverse().then((_) {
-        context.go(RoutesPath.portfolio);
-      });
+    Future.delayed(const Duration(milliseconds: 2500), () async {
+      await _checkFirstTime();
     });
+  }
+
+  Future<void> _checkFirstTime() async {
+    final prefs = await SharedPreferences.getInstance();
+    final isLogin = prefs.getBool('isLogin') ?? false;
+
+    if (!isLogin) {
+      print('🚀 First time launch, fetching coins...');
+      final coins = await _dioServices.fetchCoins();
+
+      if (coins != null) {
+        final box = await Hive.openBox('coinsBox');
+        await box.put('allCoins', coins);
+        print('💾 Coins saved in Hive → coinsBox');
+      }
+
+      await prefs.setBool('isLogin', true);
+      print('✅ First time complete → isLogin set to true');
+    } else {
+      print('🔁 Not first time → skipping API call, loading coins from Hive');
+    }
+
+    if (mounted) {
+      context.go(RoutesPath.portfolio);
+    }
   }
 
   @override
@@ -50,9 +79,9 @@ class _SplashScreenState extends State<SplashScreen>
           child: Text(
             'Crypto Portfolio',
             style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-              color: AppColor.primary,
-              fontSize: 36
-            ),
+                  color: AppColor.primary,
+                  fontSize: 36,
+                ),
           ),
         ),
       ),

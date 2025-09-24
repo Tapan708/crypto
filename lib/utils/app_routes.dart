@@ -13,7 +13,7 @@ class AppRoutes {
       ),
       GoRoute(
         path: RoutesPath.portfolio,
-        builder: (context, state) => const portfolioScreen(),
+        builder: (context, state) => const PorfolioScreen(),
       ),
     ],
   );
